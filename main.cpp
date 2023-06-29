@@ -95,6 +95,8 @@ void openAround(std::vector<std::vector<Tile*>> tileMap, int x, int y){
 
 
 int main(){    
+    sf::Color clrColor = sf::Color(222, 222, 222);
+
     srand (time(NULL));
 
     auto timerA = std::chrono::high_resolution_clock::now();
@@ -156,7 +158,22 @@ int main(){
             nextMode = 0;
         }
 
-        window.clear(sf::Color(222, 222, 222));
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)){
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
+                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)){
+                            clrColor = sf::Color(0, 0, 0);
+                        }
+                    }
+                }
+            }   
+        }else{
+            clrColor = sf::Color(222, 222, 222);
+        }
+
+
+        window.clear(clrColor);
 
         if (!mode){
             BTNEasy.draw(&window);
@@ -306,6 +323,8 @@ int main(){
                         waitingDec+=1;
                     }
                 }
+                
+
                 if (dead==3){
                     //printf("stage 1\n");
                     for (int i = 0; i<rows; i++){
@@ -333,8 +352,19 @@ int main(){
 
                 if (dead == 6){
                     nextMode = mode;
-                    dead = 3;
+                    for (int i = 0; i<rows; i++){
+                        for (int j = 0; j<columns; j++){
+                            delete tileMap[i][j];
+                        }
+                    }
+                    mode = 0;
+                    dead = 0;
+                    tileMap.clear();
+                    delete Stopper;
+                    delete mineCounter;
+                    delete Emote;
                 }
+
             }
 
             if (mode){

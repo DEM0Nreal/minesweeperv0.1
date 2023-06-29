@@ -94,7 +94,6 @@ public:
             if (this->mouseButton == "LEFT" && !mouseDown){
                 *this->dead = 6;
                 //printf("DEAD == 6:::!!!\n");
-                clicked = 1;
                 mouseDown = 0;
             }else if (this->mouseButton == "RIGHT" && !mouseDown){
                 *this->dead = 3;

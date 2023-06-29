@@ -1,3 +1,0 @@
-/home/insidev/C/second/minesweeper/build/CMakeFiles/rebuild_cache.dir
-/home/insidev/C/second/minesweeper/build/CMakeFiles/edit_cache.dir
-/home/insidev/C/second/minesweeper/build/CMakeFiles/minesweeper.dir
